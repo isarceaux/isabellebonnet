@@ -1,0 +1,8 @@
+# Redirection vers HTTPS 
+RewriteCond %{SERVER_PORT} ^80$ [OR]
+RewriteCond %{HTTPS} =off
+RewriteRule ^(.*)$ https://www.isabellebonnet.fr/$1 [R=301,L]
+
+# Redirection du non-www vers www en HTTPS
+RewriteCond %{HTTP_HOST} ^isabellebonnet.fr [NC]
+RewriteRule ^(.*)$ https://www.isabellebonnet.fr/$1 [R=301,L]
